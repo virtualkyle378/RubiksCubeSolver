@@ -4,10 +4,12 @@ public class Context {
 	
 	private CubeColor top;
 	private CubeColor front;
+	private Face face; 
 
-	public Context(CubeColor top, CubeColor front){
+	public Context(CubeColor top, CubeColor front, Face face){
 		this.top = top;
 		this.front = front;
+		this.face = face;
 	}
 	
 	CubeColor getTop(){
@@ -16,6 +18,19 @@ public class Context {
 	
 	CubeColor getFront(){
 		return front;
+	}
+	
+	Face getFace(){
+		return face;
+	}
+	
+	public enum Face{
+		Top,
+		Bottom,
+		Left,
+		Right,
+		Front,
+		Back
 	}
 	
 }

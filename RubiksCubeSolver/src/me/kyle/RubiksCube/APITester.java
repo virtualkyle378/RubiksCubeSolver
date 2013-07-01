@@ -6,7 +6,6 @@ public class APITester {
 
 	public static void main(String args[]){	
 		CubeWrapper wrapper = new CubeWrapper();
-		wrapper
 	}
 	
 }

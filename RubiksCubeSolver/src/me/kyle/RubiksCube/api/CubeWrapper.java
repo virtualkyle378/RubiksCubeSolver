@@ -18,14 +18,4 @@ public class CubeWrapper {
 	public void setFace(CubeSurface surface, Context context){
 		
 	}
-	
-	enum Colors{
-		White,
-		Yellow,
-		Red,
-		Orange,
-		Blue,
-		Green,
-	}
-	
 }
