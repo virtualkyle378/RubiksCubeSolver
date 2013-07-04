@@ -24,13 +24,23 @@ public class Context {
 		return face;
 	}
 	
-	public enum Face{
-		Top,
-		Bottom,
-		Left,
-		Right,
-		Front,
-		Back
+	enum Face{
+		Top(CubeColor.ORANGE),
+		Bottom(CubeColor.ORANGE),
+		Left(CubeColor.WHITE),
+		Right(CubeColor.WHITE),
+		Front(CubeColor.WHITE),
+		Back(CubeColor.WHITE),;
+		
+		private CubeColor requiredfront;
+		
+		private Face(CubeColor requiredfront){
+			this.requiredfront = requiredfront;
+		}
+		
+		CubeColor requiredFront(){
+			return requiredfront;
+		}
 	}
 	
 }
