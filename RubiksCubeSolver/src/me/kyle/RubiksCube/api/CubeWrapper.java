@@ -9,7 +9,7 @@ public class CubeWrapper {
 	 * top is top facing back
 	 */
 	CubeSurface topFace;
-	CubeSurface fontFace;
+	CubeSurface frontFace;
 	CubeSurface bottomFace;
 	CubeSurface leftFace;
 	CubeSurface rightFace;
@@ -31,7 +31,7 @@ public class CubeWrapper {
 			bottomFace = surface;
 			break;
 		case Front:
-			fontFace = surface;
+			frontFace = surface;
 			break;
 		case Left:
 			leftFace = surface;
