@@ -1,5 +1,7 @@
 package me.kyle.RubiksCube.api;
 
+import java.util.ArrayList;
+
 public class RubiksCube {
 	
 	private CubeSurface topFace;
@@ -45,10 +47,6 @@ public class RubiksCube {
 	}
 	
 	public CubeFace getBottomFace() {
-		return null;
-	}
-	
-	private CubeFace constructCubeFace(CubeSurface frontface, CubeSurface topface, CubeSurface rightface, CubeSurface bottomface, CubeSurface leftface) {
 		return null;
 	}
 	
@@ -100,11 +98,11 @@ public class RubiksCube {
 		
 	}
 	
-	public void moveFace(CubeSurface frontface, CubeSurface topface, CubeSurface rightface, CubeSurface bottomface, CubeSurface leftface){
+	public void moveFace(CubeSurface frontface, ArrayList<CubeColor> topdedge, ArrayList<CubeColor> rightdedge, ArrayList<CubeColor> bottomface, ArrayList<CubeColor> leftface){
 		
 	}
 	
-	public void moveFaceInverted(CubeSurface frontface, CubeSurface topface, CubeSurface rightface, CubeSurface bottomface, CubeSurface leftface){
+	public void moveFaceInverted(CubeSurface frontface, ArrayList<CubeColor> topdedge, ArrayList<CubeColor> rightdedge, ArrayList<CubeColor> bottomface, ArrayList<CubeColor> leftface){
 		
 	}
 }

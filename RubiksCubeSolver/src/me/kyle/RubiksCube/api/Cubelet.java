@@ -1,8 +1,8 @@
 package me.kyle.RubiksCube.api;
 
 public abstract class Cubelet {
-	CubeletFacet frontside;
-	CubeletFacet offside;
+	protected CubeletFacet frontside;
+	protected CubeletFacet offside;
 	
 	public CubeletFacet getFrontSide(){
 		return frontside;
