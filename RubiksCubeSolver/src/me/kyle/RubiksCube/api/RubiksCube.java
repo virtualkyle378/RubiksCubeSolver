@@ -31,7 +31,7 @@ public class RubiksCube {
 	}
 
 	public CubeFace getRightFace() {
-		return null;
+		return new CubeFace(leftFace, topFace.getRightDedge(), backFace.getLeftDedge(), bottomFace.getRightDedge(), frontFace.getRightDedge());
 	}
 
 	public CubeFace getFrontFace() {
