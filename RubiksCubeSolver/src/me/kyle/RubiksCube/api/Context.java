@@ -24,9 +24,9 @@ public class Context {
 		return face;
 	}
 	
-	enum Face{
+	public enum Face{
 		Top(CubeColor.ORANGE),
-		Bottom(CubeColor.ORANGE),
+		Bottom(CubeColor.RED),
 		Left(CubeColor.WHITE),
 		Right(CubeColor.WHITE),
 		Front(CubeColor.WHITE),
@@ -38,7 +38,7 @@ public class Context {
 			this.requiredfront = requiredfront;
 		}
 		
-		CubeColor requiredFront(){
+		public CubeColor requiredFront(){
 			return requiredfront;
 		}
 	}

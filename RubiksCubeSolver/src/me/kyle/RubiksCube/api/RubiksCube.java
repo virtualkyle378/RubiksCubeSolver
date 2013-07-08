@@ -27,27 +27,27 @@ public class RubiksCube {
 	}
 	
 	public CubeFace getLeftFace() {//returns constructFace with desired arguments
-		return null;
+		return new CubeFace(leftFace, topFace.getLeftDedge(), frontFace.getLeftDedge(), bottomFace.getLeftDedge(), backFace.getRightDedge());
 	}
 
 	public CubeFace getRightFace() {
-		return new CubeFace(leftFace, topFace.getRightDedge(), backFace.getLeftDedge(), bottomFace.getRightDedge(), frontFace.getRightDedge());
+		return new CubeFace(rightFace, topFace.getRightDedge(), backFace.getLeftDedge(), bottomFace.getRightDedge(), frontFace.getRightDedge());
 	}
 
 	public CubeFace getFrontFace() {
-		return null;
+		return new CubeFace(frontFace, topFace.getBottomDedge(), rightFace.getLeftDedge(), bottomFace.getTopDedge(), leftFace.getRightDedge());
 	}
 	
 	public CubeFace getBackFace() {
-		return null;
+		return new CubeFace(backFace, topFace.getTopDedge(), leftFace.getLeftDedge(), bottomFace.getBottomDedge(), rightFace.getRightDedge());
 	}
 	
 	public CubeFace getTopFace() {
-		return null;
+		return new CubeFace(topFace, backFace.getTopDedge(), rightFace.getTopDedge(), frontFace.getTopDedge(), leftFace.getTopDedge());
 	}
 	
 	public CubeFace getBottomFace() {
-		return null;
+		return new CubeFace(bottomFace, frontFace.getBottomDedge(), rightFace.getBottomDedge(), backFace.getBottomDedge(), leftFace.getBottomDedge());
 	}
 	
 	public void left(){

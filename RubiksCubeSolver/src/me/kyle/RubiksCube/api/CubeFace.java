@@ -19,7 +19,7 @@ public class CubeFace {
 				if(row == 2)
 					 verticalside = new CubeletFacet(bottomdedge.colors[Math.abs(col - 2)], bottomdedge.parentcolor);
 				if(col == 0)
-					 offside = new CubeletFacet(leftdedge.colors[Math.abs(col - 2)], leftdedge.parentcolor);
+					 offside = new CubeletFacet(leftdedge.colors[Math.abs(row - 2)], leftdedge.parentcolor);
 				
 				if(offside != null && verticalside != null){
 					cubelets[row][col] = new CornerCubelet(frontside, offside, verticalside);
@@ -32,7 +32,7 @@ public class CubeFace {
 	}
 	
 	public Cubelet getCubelet(CubeletLocation x){
-		return cubelets[x.x][x.y];
+		return cubelets[(x.y * -1) + 1][x.x + 1];
 	}
 	
 }
