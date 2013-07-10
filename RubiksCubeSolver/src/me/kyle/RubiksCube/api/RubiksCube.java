@@ -98,11 +98,21 @@ public class RubiksCube {
 		
 	}
 	
-	public void moveFace(CubeSurface frontface, ArrayList<CubeColor> topdedge, ArrayList<CubeColor> rightdedge, ArrayList<CubeColor> bottomface, ArrayList<CubeColor> leftface){
-		
+	public void moveFace(CubeSurface frontface, CubeDedge topdedge, CubeDedge rightdedge, CubeDedge bottomface, CubeDedge leftface){
+		CubeColor[][] surface = frontface.surface;
+		CubeColor temp = surface[0][1];
+		surface[0][1] = surface [1][0];
+		surface[1][0] = surface [2][1];
+		surface[2][1] = surface [1][2];
+		surface[0][1] = temp;
+		temp = surface[0][0];
+		surface[0][0] = surface [2][0];
+		surface[2][0] = surface [2][2];
+		surface[2][2] = surface [0][2];
+		surface[0][2] = temp;
 	}
 	
-	public void moveFaceInverted(CubeSurface frontface, ArrayList<CubeColor> topdedge, ArrayList<CubeColor> rightdedge, ArrayList<CubeColor> bottomface, ArrayList<CubeColor> leftface){
+	public void moveFaceInverted(CubeSurface frontface, CubeDedge topdedge, CubeDedge rightdedge, CubeDedge bottomface, CubeDedge leftface){
 		
 	}
 }
