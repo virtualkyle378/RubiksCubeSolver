@@ -83,6 +83,9 @@ public class APITester {
 		}
 		System.out.println();
 		
+		cube.top();
+		cube.topInverted();
+		
 		System.out.println("Top:");
 		printFace(face);
 		face = cube.getFrontFace();

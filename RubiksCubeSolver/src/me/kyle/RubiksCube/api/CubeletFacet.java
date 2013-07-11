@@ -9,6 +9,11 @@ public class CubeletFacet {
 		this.parentcolor = parentcolor;
 	}
 	
+	CubeletFacet(CubeletFacet old){
+		this.color = old.color;
+		this.parentcolor = old.parentcolor;
+	}
+	
 	public CubeColor getParentColor(){
 		return parentcolor;
 	}

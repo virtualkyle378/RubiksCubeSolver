@@ -20,7 +20,7 @@ public class CubeWrapper {
 		if(!context.getFront().equals(context.getFace().requiredFront())){
 			throw new IllegalArgumentException("The Front must be: " + context.getFace().requiredFront().toString());
 		}
-		if(!context.getTop().equals(surface.surface[1][1])){
+		if(!context.getTop().equals(surface.surface[1][1].color)){
 			throw new IllegalArgumentException("The surface center is not consistant with the inputted context top face");
 		}
 		switch (context.getFace()) {

@@ -11,15 +11,15 @@ public class CubeFace {
 		for (int row = 0; row < cubelets.length; row++) {
 			for (int col = 0; col < cubelets[row].length; col++) {
 				CubeletFacet frontside = null, offside = null, verticalside = null; 
-				frontside = new CubeletFacet(frontface.surface[row][col], frontface.surface[1][1]);
+				frontside = frontface.surface[row][col];
 				if(row == 0)
-					 verticalside = new CubeletFacet(topdedge.colors[col], topdedge.parentcolor);
+					 verticalside = topdedge.colors[col];
 				if(col == 2)
-					 offside = new CubeletFacet(rightdedge.colors[row], rightdedge.parentcolor);
+					 offside = rightdedge.colors[row];
 				if(row == 2)
-					 verticalside = new CubeletFacet(bottomdedge.colors[Math.abs(col - 2)], bottomdedge.parentcolor);
+					 verticalside = bottomdedge.colors[Math.abs(col - 2)];
 				if(col == 0)
-					 offside = new CubeletFacet(leftdedge.colors[Math.abs(row - 2)], leftdedge.parentcolor);
+					 offside = leftdedge.colors[Math.abs(row - 2)];
 				
 				if(offside != null && verticalside != null){
 					cubelets[row][col] = new CornerCubelet(frontside, offside, verticalside);
