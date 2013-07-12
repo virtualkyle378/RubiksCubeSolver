@@ -58,6 +58,28 @@ public class APITester {
 		wrapper.setFace(new CubeSurface(whitesurface), context);
 		
 		RubiksCube cube = new RubiksCube(wrapper);
+		
+		cube.x();
+		cube.xInverted();
+		cube.y();
+		cube.yInverted();
+		
+//		cube.right();
+//		cube.up();
+//		cube.rightInverted();
+//		cube.upInverted();
+//		cube.rightInverted();
+//		cube.front();
+//		cube.right();
+//		cube.right();
+//		cube.upInverted();
+//		cube.rightInverted();
+//		cube.upInverted();
+//		cube.right();
+//		cube.up();
+//		cube.rightInverted();
+//		cube.frontInverted();
+		
 		System.out.println();
 		for (int y = 1; y > -2; y--) {
 			for (int x = -1; x < 2; x++) {
@@ -82,9 +104,6 @@ public class APITester {
 			System.out.println();
 		}
 		System.out.println();
-		
-		cube.top();
-		cube.topInverted();
 		
 		System.out.println("Top:");
 		printFace(face);
