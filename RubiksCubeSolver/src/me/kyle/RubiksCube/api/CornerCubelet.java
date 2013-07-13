@@ -1,12 +1,11 @@
 package me.kyle.RubiksCube.api;
 
-public class CornerCubelet extends Cubelet {
+public class CornerCubelet extends EdgeCubelet {
 
 	private CubeletFacet verticalside;
 	
 	CornerCubelet(CubeletFacet frontside, CubeletFacet offside, CubeletFacet verticalside) {
-		this.frontside = frontside;
-		this.offside =  offside;
+		super(frontside, offside);
 		this.verticalside = verticalside;
 	}
 	

@@ -23,6 +23,8 @@ public class CubeFace {
 				
 				if(offside != null && verticalside != null){
 					cubelets[row][col] = new CornerCubelet(frontside, offside, verticalside);
+				} if(offside == null && verticalside == null){
+					cubelets[row][col] = new CenterCubelet(frontside);
 				} else {
 					offside = (offside != null) ? offside : verticalside;
 					cubelets[row][col] = new EdgeCubelet(frontside, offside);
