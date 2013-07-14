@@ -10,6 +10,9 @@ public class RubiksCube {
 	private CubeSurface leftFace;
 	private CubeSurface rightFace;
 	private CubeSurface backFace;
+	
+	ArrayList<String> moves = new ArrayList<String>();
+	boolean logMoves = false;
 
 	public RubiksCube(CubeWrapper wrapper){
 		if (wrapper.topFace != null && wrapper.frontFace != null
@@ -22,11 +25,11 @@ public class RubiksCube {
 			this.rightFace = wrapper.rightFace;
 			this.backFace = wrapper.backFace;
 		} else {
-			throw new NullPointerException("All faces need not be null");
+			throw new NullPointerException("All faces must not be null");
 		}
 	}
 	
-	public CubeFace getLeftFace() {//returns constructFace with desired arguments
+	public CubeFace getLeftFace() {
 		return new CubeFace(leftFace, topFace.getLeftDedge(), frontFace.getLeftDedge(), bottomFace.getLeftDedge(), backFace.getRightDedge());
 	}
 
@@ -51,54 +54,81 @@ public class RubiksCube {
 	}
 	
 	public void left(){
+		submitMove("L");
 		moveFace(leftFace, topFace.getLeftDedge(), frontFace.getLeftDedge(), bottomFace.getLeftDedge(), backFace.getRightDedge());
 	}
 	
 	public void leftInverted(){
+		submitMove("L'");
 		moveFaceInverted(leftFace, topFace.getLeftDedge(), frontFace.getLeftDedge(), bottomFace.getLeftDedge(), backFace.getRightDedge());
 	}
 	
 	public void right(){
+		submitMove("R");
 		moveFace(rightFace, topFace.getRightDedge(), backFace.getLeftDedge(), bottomFace.getRightDedge(), frontFace.getRightDedge());
 	}
 	
 	public void rightInverted(){
+		submitMove("R'");
 		moveFaceInverted(rightFace, topFace.getRightDedge(), backFace.getLeftDedge(), bottomFace.getRightDedge(), frontFace.getRightDedge());
 	}
 	
 	public void front(){
+		submitMove("F");
 		moveFace(frontFace, topFace.getBottomDedge(), rightFace.getLeftDedge(), bottomFace.getTopDedge(), leftFace.getRightDedge());
 	}
 	
 	public void frontInverted(){
+		submitMove("F'");
 		moveFaceInverted(frontFace, topFace.getBottomDedge(), rightFace.getLeftDedge(), bottomFace.getTopDedge(), leftFace.getRightDedge());
 	}
 	
 	public void back(){
+		submitMove("B");
 		moveFace(backFace, topFace.getTopDedge(), leftFace.getLeftDedge(), bottomFace.getBottomDedge(), rightFace.getRightDedge());
 	}
 	
 	public void backInverted(){
+		submitMove("B'");
 		moveFaceInverted(backFace, topFace.getTopDedge(), leftFace.getLeftDedge(), bottomFace.getBottomDedge(), rightFace.getRightDedge());
 	}
 	
 	public void up(){
+		submitMove("U");
 		moveFace(topFace, backFace.getTopDedge(), rightFace.getTopDedge(), frontFace.getTopDedge(), leftFace.getTopDedge());
 	}
 	
 	public void upInverted(){
+		submitMove("U'");
 		moveFaceInverted(topFace, backFace.getTopDedge(), rightFace.getTopDedge(), frontFace.getTopDedge(), leftFace.getTopDedge());
 	}
 	
 	public void down(){
+		submitMove("D");
 		moveFace(bottomFace, frontFace.getBottomDedge(), rightFace.getBottomDedge(), backFace.getBottomDedge(), leftFace.getBottomDedge());
 	}
 	
 	public void downInverted(){
+		submitMove("D'");
 		moveFaceInverted(bottomFace, frontFace.getBottomDedge(), rightFace.getBottomDedge(), backFace.getBottomDedge(), leftFace.getBottomDedge());
 	}
 	
+	public void middle(){
+		submitMove("M");
+		x();
+		rightInverted();
+		left();
+	}
+	
+	public void middleInverted(){
+		submitMove("M'");
+		xInverted();
+		right();
+		leftInverted();
+	}
+	
 	public void x(){
+		submitMove("x");
 		rotateSurface(rightFace);
 		rotateSurfaceInverted(leftFace);
 		CubeSurface temp = new CubeSurface(topFace);
@@ -111,6 +141,7 @@ public class RubiksCube {
 	}
 	
 	public void xInverted(){
+		submitMove("x'");
 		rotateSurfaceInverted(rightFace);
 		rotateSurface(leftFace);
 		CubeSurface temp = new CubeSurface(topFace);
@@ -123,6 +154,7 @@ public class RubiksCube {
 	}
 	
 	public void y(){
+		submitMove("y");
 		rotateSurface(topFace);
 		rotateSurfaceInverted(bottomFace);
 		CubeSurface temp = new CubeSurface(frontFace);
@@ -133,6 +165,7 @@ public class RubiksCube {
 	}
 	
 	public void yInverted(){
+		submitMove("y'");
 		rotateSurfaceInverted(topFace);
 		rotateSurface(bottomFace);
 		CubeSurface temp = new CubeSurface(frontFace);
@@ -211,6 +244,26 @@ public class RubiksCube {
 	private void rotateSurfaceTwice(CubeSurface face){
 		rotateSurface(face);
 		rotateSurface(face);
+	}
+	
+	public void enableMoveLogging(){
+		logMoves = true;
+	}
+	
+	public void disableMoveLogging(){
+		logMoves = false;
+	}
+	
+	public void clearMoveLog(){
+		moves.clear();
+	}
+	
+	public ArrayList<String> getMoveLog(){
+		return moves;
+	}
+	
+	private void submitMove(String move){
+		moves.add(move);
 	}
 	
 }
