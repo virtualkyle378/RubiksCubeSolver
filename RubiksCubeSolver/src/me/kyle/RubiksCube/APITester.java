@@ -91,7 +91,7 @@ public class APITester {
 		CubeFace face2 = cube.getLeftFace();
 		for (int y = 1; y > -2; y--) {
 			for (int x = -1; x < 2; x++) {
-				System.out.print(face2.getCubelet(new CubeletLocation(x, y)).getFrontSide().getColor().name() + "\t");
+				System.out.print(face2.getCubelet(x, y).getFrontSide().getColor().name() + "\t");
 			}
 			System.out.println();
 		}
@@ -99,7 +99,7 @@ public class APITester {
 		CubeFace face = cube.getTopFace();
 		for (int y = 1; y > -2; y--) {
 			for (int x = -1; x < 2; x++) {
-				System.out.print(face.getCubelet(new CubeletLocation(x, y)).getFrontSide().getColor().name() + "\t");
+				System.out.print(face.getCubelet(x, y).getFrontSide().getColor().name() + "\t");
 			}
 			System.out.println();
 		}
@@ -127,41 +127,41 @@ public class APITester {
 	private static void printFace(CubeFace face){
 		//System.out.println();
 		System.out.print("\t\t");
-		System.out.print(((EdgeCubelet)face.getCubelet(new CubeletLocation(0,1))).getOffSide().getParentColor() + "\t\n");
+		System.out.print(((EdgeCubelet)face.getCubelet(0,1)).getOffSide().getParentColor() + "\t\n");
 		System.out.print("\t");
-		System.out.print(((CornerCubelet)face.getCubelet(new CubeletLocation(-1,1))).getVerticalSide().getColor() + "\t");
-		System.out.print(((EdgeCubelet)face.getCubelet(new CubeletLocation(0,1))).getOffSide().getColor() + "\t");
-		System.out.print(((CornerCubelet)face.getCubelet(new CubeletLocation(1,1))).getVerticalSide().getColor() + "\t");
+		System.out.print(((CornerCubelet)face.getCubelet(-1,1)).getVerticalSide().getColor() + "\t");
+		System.out.print(((EdgeCubelet)face.getCubelet(0,1)).getOffSide().getColor() + "\t");
+		System.out.print(((CornerCubelet)face.getCubelet(1,1)).getVerticalSide().getColor() + "\t");
 		System.out.println();
 		
-		System.out.print(((CornerCubelet)face.getCubelet(new CubeletLocation(-1,1))).getOffSide().getColor() + "\t");
-		System.out.print(face.getCubelet(new CubeletLocation(-1,1)).getFrontSide().getColor() + "\t");
-		System.out.print(face.getCubelet(new CubeletLocation(0,1)).getFrontSide().getColor() + "\t");
-		System.out.print(face.getCubelet(new CubeletLocation(1,1)).getFrontSide().getColor() + "\t");
-		System.out.print(((CornerCubelet)face.getCubelet(new CubeletLocation(1,1))).getOffSide().getColor() + "\t");
+		System.out.print(((CornerCubelet)face.getCubelet(-1,1)).getOffSide().getColor() + "\t");
+		System.out.print(face.getCubelet(-1,1).getFrontSide().getColor() + "\t");
+		System.out.print(face.getCubelet(0,1).getFrontSide().getColor() + "\t");
+		System.out.print(face.getCubelet(1,1).getFrontSide().getColor() + "\t");
+		System.out.print(((CornerCubelet)face.getCubelet(1,1)).getOffSide().getColor() + "\t");
 		System.out.println();
 		
-		System.out.print(((EdgeCubelet)face.getCubelet(new CubeletLocation(-1,0))).getOffSide().getColor() + "\t");
-		System.out.print(face.getCubelet(new CubeletLocation(-1,0)).getFrontSide().getColor() + "\t");
-		System.out.print(face.getCubelet(new CubeletLocation(0,0)).getFrontSide().getColor() + "\t");
-		System.out.print(face.getCubelet(new CubeletLocation(1,0)).getFrontSide().getColor() + "\t");
-		System.out.print(((EdgeCubelet)face.getCubelet(new CubeletLocation(1,0))).getOffSide().getColor() + "\t");
+		System.out.print(((EdgeCubelet)face.getCubelet(-1,0)).getOffSide().getColor() + "\t");
+		System.out.print(face.getCubelet(-1,0).getFrontSide().getColor() + "\t");
+		System.out.print(face.getCubelet(0,0).getFrontSide().getColor() + "\t");
+		System.out.print(face.getCubelet(1,0).getFrontSide().getColor() + "\t");
+		System.out.print(((EdgeCubelet)face.getCubelet(1,0)).getOffSide().getColor() + "\t");
 		System.out.println();
 		
-		System.out.print(((CornerCubelet)face.getCubelet(new CubeletLocation(-1,-1))).getOffSide().getColor() + "\t");
-		System.out.print(face.getCubelet(new CubeletLocation(-1,-1)).getFrontSide().getColor() + "\t");
-		System.out.print(face.getCubelet(new CubeletLocation(0,-1)).getFrontSide().getColor() + "\t");
-		System.out.print(face.getCubelet(new CubeletLocation(1,-1)).getFrontSide().getColor() + "\t");
-		System.out.print(((CornerCubelet)face.getCubelet(new CubeletLocation(1,-1))).getOffSide().getColor() + "\t");
+		System.out.print(((CornerCubelet)face.getCubelet(-1,-1)).getOffSide().getColor() + "\t");
+		System.out.print(face.getCubelet(-1,-1).getFrontSide().getColor() + "\t");
+		System.out.print(face.getCubelet(0,-1).getFrontSide().getColor() + "\t");
+		System.out.print(face.getCubelet(1,-1).getFrontSide().getColor() + "\t");
+		System.out.print(((CornerCubelet)face.getCubelet(1,-1)).getOffSide().getColor() + "\t");
 		System.out.println();
 		
 		System.out.print("\t");
-		System.out.print(((CornerCubelet)face.getCubelet(new CubeletLocation(-1,-1))).getVerticalSide().getColor() + "\t");
-		System.out.print(((EdgeCubelet)face.getCubelet(new CubeletLocation(0,-1))).getOffSide().getColor() + "\t");
-		System.out.print(((CornerCubelet)face.getCubelet(new CubeletLocation(1,-1))).getVerticalSide().getColor() + "\t");
+		System.out.print(((CornerCubelet)face.getCubelet(-1,-1)).getVerticalSide().getColor() + "\t");
+		System.out.print(((EdgeCubelet)face.getCubelet(0,-1)).getOffSide().getColor() + "\t");
+		System.out.print(((CornerCubelet)face.getCubelet(1,-1)).getVerticalSide().getColor() + "\t");
 		System.out.println();
 		System.out.print("\t\t");
-		System.out.print(((EdgeCubelet)face.getCubelet(new CubeletLocation(0,-1))).getOffSide().getParentColor() + "\t\n");
+		System.out.print(((EdgeCubelet)face.getCubelet(0,-1)).getOffSide().getParentColor() + "\t\n");
 		System.out.println();
 	}
 	

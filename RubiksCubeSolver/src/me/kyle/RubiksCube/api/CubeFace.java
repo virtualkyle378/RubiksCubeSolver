@@ -33,8 +33,10 @@ public class CubeFace {
 		}
 	}
 	
-	public Cubelet getCubelet(CubeletLocation x){
-		return cubelets[(x.y * -1) + 1][x.x + 1];
+	public Cubelet getCubelet(int x, int y){
+		if(Math.abs(x) > 1 || Math.abs(y) > 1)
+			throw new IllegalArgumentException("Inputted x and y must be between 1 and -1");
+		return cubelets[(y * -1) + 1][x + 1];
 	}
 	
 }
