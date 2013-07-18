@@ -53,6 +53,65 @@ public class RubiksCube {
 		return new CubeFace(bottomFace, frontFace.getBottomDedge(), rightFace.getBottomDedge(), backFace.getBottomDedge(), leftFace.getBottomDedge());
 	}
 	
+	public void moveFace(String move){
+		switch(move){
+		case "R":
+			right();
+			break;
+		case "R'":
+			rightInverted();
+			break;
+		case "L":
+			left();
+			break;
+		case "L'":
+			leftInverted();
+			break;
+		case "U":
+			up();
+			break;
+		case "U'":
+			upInverted();
+			break;
+		case "D":
+			down();
+			break;
+		case "D'":
+			downInverted();
+			break;
+		case "B":
+			back();
+			break;
+		case "B'":
+			backInverted();
+			break;
+		case "F":
+			front();
+			break;
+		case "F'":
+			frontInverted();
+			break;
+		case "M":
+			middle();
+			break;
+		case "M'":
+			middleInverted();
+			break;
+		case "x":
+			x();
+			break;
+		case "x'":
+			xInverted();
+			break;
+		case "y":
+			y();
+			break;
+		case "y'":
+			yInverted();
+			break;
+		}
+	}
+	
 	public void left(){
 		submitMove("L");
 		moveFace(leftFace, topFace.getLeftDedge(), frontFace.getLeftDedge(), bottomFace.getLeftDedge(), backFace.getRightDedge());
