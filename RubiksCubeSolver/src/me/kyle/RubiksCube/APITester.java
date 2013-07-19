@@ -119,7 +119,7 @@ public class APITester {
 		face = cube.getRightFace();
 		System.out.println("Right:");
 		printFace(face);
-		face = cube.getBottomFace();
+		face = cube.getDownFace();
 		System.out.println("Bottom:");
 		printFace(face);
 		}

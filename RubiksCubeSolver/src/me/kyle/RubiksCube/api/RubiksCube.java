@@ -29,6 +29,29 @@ public class RubiksCube {
 		}
 	}
 	
+	public String[] getVaildFaces(){
+		return new String[]{
+			"L",
+			"R",
+			"F",
+			"B",
+			"T",
+			"D",
+		};
+	}
+	
+	public CubeFace getFace(String face) {
+		switch(face){
+		case "L": return getLeftFace();
+		case "R": return getRightFace();
+		case "F": return getFrontFace();
+		case "B": return getBackFace();
+		case "T": return getTopFace();
+		case "D": return getDownFace();
+		default: return null;
+		}
+	}
+	
 	public CubeFace getLeftFace() {
 		return new CubeFace(leftFace, topFace.getLeftDedge(), frontFace.getLeftDedge(), bottomFace.getLeftDedge(), backFace.getRightDedge());
 	}
@@ -49,8 +72,22 @@ public class RubiksCube {
 		return new CubeFace(topFace, backFace.getTopDedge(), rightFace.getTopDedge(), frontFace.getTopDedge(), leftFace.getTopDedge());
 	}
 	
-	public CubeFace getBottomFace() {
+	public CubeFace getDownFace() {
 		return new CubeFace(bottomFace, frontFace.getBottomDedge(), rightFace.getBottomDedge(), backFace.getBottomDedge(), leftFace.getBottomDedge());
+	}
+	
+	public String[] getFaceMoves(){
+		return new String[]{
+				"R","R'",
+				"L","L'",
+				"U","U'",
+				"D","D'",
+				"B","B'",
+				"F","F'",
+				"M","M'",
+				"x","x'",
+				"y","y'"
+		};
 	}
 	
 	public void moveFace(String move){
@@ -109,6 +146,7 @@ public class RubiksCube {
 		case "y'":
 			yInverted();
 			break;
+		default: throw new IllegalArgumentException(move + " is not a valid move");
 		}
 	}
 	
@@ -303,6 +341,33 @@ public class RubiksCube {
 	private void rotateSurfaceTwice(CubeSurface face){
 		rotateSurface(face);
 		rotateSurface(face);
+	}
+	
+	public CubeletLocation findEdgeCubelet(CubeColor side1, CubeColor side2){//0,0 is on top left of front face
+		
+	}
+	
+	private boolean edgeCubeletValid(EdgeCubelet cubelet, CubeColor color1, CubeColor color2){
+		return (cubelet.getFrontSide().getColor().equals(color1) && cubelet.getOffSide().getColor().equals(color2)) ||
+				(cubelet.getFrontSide().getColor().equals(color2) && cubelet.getOffSide().getColor().equals(color1));
+	}
+	
+	public CubeletLocation findCornerCubelet(CubeColor side1, CubeColor side2, CubeColor side3){//0,0 is on top left of front face
+		
+	}
+	
+	private boolean cornerCubeletValid(CornerCubelet cubelet, CubeColor side1, CubeColor side2, CubeColor side3){
+		CubeColor[] colors = {side1, side2, side3};
+		int istrue = 0;
+		for (CubeColor orignal: new CubeColor[]{cubelet.getFrontSide().getColor(), cubelet.getOffSide().getColor(), cubelet.getVerticalSide().getColor()}) {
+			for (CubeColor i : colors) {
+				if (cubelet.getFrontSide().getColor().equals(i)) {
+					istrue++;
+					break;
+				}
+			}
+		}
+		return istrue == 3;
 	}
 	
 	public void enableMoveLogging(){
