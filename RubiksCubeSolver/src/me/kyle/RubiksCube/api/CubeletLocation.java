@@ -2,14 +2,16 @@ package me.kyle.RubiksCube.api;
 
 public class CubeletLocation {
 	
-	int x;
-	int y;
+	public int x;
+	public int y;
+	public int z;
 	
-	public CubeletLocation(int x, int y){
-		if(Math.abs(x) > 1 || Math.abs(y) > 1)
-			throw new IllegalArgumentException("Inputted x and y must be between 1 and -1");
+	public CubeletLocation(int x, int y, int z){
+		if(x > 3 || y > 3 || z > 3)
+			throw new IllegalArgumentException("Inputted x, y, and z must be between 0 and 3");
 		this.x = x;
 		this.y = y;
+		this.z = z;
 	}
 	
 }
