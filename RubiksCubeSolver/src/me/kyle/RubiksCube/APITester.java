@@ -13,11 +13,18 @@ import me.kyle.RubiksCube.api.RubiksCube;
 public class APITester {
 
 	public static void main(String args[]){	
+		
+		//To scramble: Yellow on top, Orange on front. Use sequence below.
+		//Scramble:  L2  U'  D  R2  D'  L2  R2  D2  U2  F2  B  U  D'  F2  U2  D2  B2  U2  F'  R2  U'  R  U2  R  F'
+		
 		CubeWrapper wrapper = new CubeWrapper();
 		Context context = new Context(CubeColor.YELLOW, CubeColor.ORANGE, Context.Face.Top);
-		CubeColor[][] yellowsurface = {{CubeColor.GREEN, CubeColor.ORANGE, CubeColor.BLUE},
-				{CubeColor.YELLOW, CubeColor.YELLOW, CubeColor.GREEN},
-				{CubeColor.ORANGE, CubeColor.WHITE, CubeColor.YELLOW}};
+		
+		//Keep in mind that this API was written with vision in mind. The face that you're "scanning" is facing up.
+		
+		CubeColor[][] yellowsurface = {{CubeColor.WHITE, CubeColor.WHITE, CubeColor.BLUE},
+				{CubeColor.GREEN, CubeColor.YELLOW, CubeColor.BLUE},
+				{CubeColor.WHITE, CubeColor.WHITE, CubeColor.GREEN}};
 		wrapper.setFace(new CubeSurface(yellowsurface), context);
 		
 		for (int row = 0; row < yellowsurface.length; row++) {
@@ -28,33 +35,33 @@ public class APITester {
 		}
 		
 		context = new Context(CubeColor.ORANGE, CubeColor.WHITE, Context.Face.Front);
-		CubeColor[][] orangesurface = {{CubeColor.WHITE, CubeColor.BLUE, CubeColor.GREEN},
-				{CubeColor.WHITE, CubeColor.ORANGE, CubeColor.BLUE},
-				{CubeColor.BLUE, CubeColor.YELLOW, CubeColor.YELLOW}};
+		CubeColor[][] orangesurface = {{CubeColor.BLUE, CubeColor.ORANGE, CubeColor.ORANGE},
+				{CubeColor.BLUE, CubeColor.ORANGE, CubeColor.RED},
+				{CubeColor.BLUE, CubeColor.GREEN, CubeColor.RED}};
 		wrapper.setFace(new CubeSurface(orangesurface), context);
 		
 		context = new Context(CubeColor.BLUE, CubeColor.WHITE, Context.Face.Right);
-		CubeColor[][] bluesurface = {{CubeColor.ORANGE, CubeColor.RED, CubeColor.RED},
-				{CubeColor.RED, CubeColor.BLUE, CubeColor.WHITE},
-				{CubeColor.BLUE, CubeColor.WHITE, CubeColor.RED}};
+		CubeColor[][] bluesurface = {{CubeColor.YELLOW, CubeColor.ORANGE, CubeColor.YELLOW},
+				{CubeColor.GREEN, CubeColor.BLUE, CubeColor.BLUE},
+				{CubeColor.BLUE, CubeColor.RED, CubeColor.RED}};
 		wrapper.setFace(new CubeSurface(bluesurface), context);
 		
 		context = new Context(CubeColor.RED, CubeColor.WHITE, Context.Face.Back);
-		CubeColor[][] redsurface = {{CubeColor.YELLOW, CubeColor.GREEN, CubeColor.RED},
-				{CubeColor.GREEN, CubeColor.RED, CubeColor.RED},
-				{CubeColor.WHITE, CubeColor.BLUE, CubeColor.GREEN}};
+		CubeColor[][] redsurface = {{CubeColor.ORANGE, CubeColor.RED, CubeColor.GREEN},
+				{CubeColor.YELLOW, CubeColor.RED, CubeColor.ORANGE},
+				{CubeColor.YELLOW, CubeColor.RED, CubeColor.WHITE}};
 		wrapper.setFace(new CubeSurface(redsurface), context);
 		
 		context = new Context(CubeColor.GREEN, CubeColor.WHITE, Context.Face.Left);
-		CubeColor[][] greensurface = {{CubeColor.WHITE, CubeColor.ORANGE, CubeColor.GREEN},
-				{CubeColor.YELLOW, CubeColor.GREEN, CubeColor.RED},
-				{CubeColor.RED, CubeColor.BLUE, CubeColor.ORANGE}};
+		CubeColor[][] greensurface = {{CubeColor.RED, CubeColor.YELLOW, CubeColor.RED},
+				{CubeColor.YELLOW, CubeColor.GREEN, CubeColor.WHITE},
+				{CubeColor.GREEN, CubeColor.ORANGE, CubeColor.ORANGE}};
 		wrapper.setFace(new CubeSurface(greensurface), context);
 		
 		context = new Context(CubeColor.WHITE, CubeColor.RED, Context.Face.Bottom);
-		CubeColor[][] whitesurface = {{CubeColor.WHITE, CubeColor.GREEN, CubeColor.ORANGE},
-				{CubeColor.YELLOW, CubeColor.WHITE, CubeColor.ORANGE},
-				{CubeColor.YELLOW, CubeColor.ORANGE, CubeColor.BLUE}};
+		CubeColor[][] whitesurface = {{CubeColor.WHITE, CubeColor.WHITE, CubeColor.YELLOW},
+				{CubeColor.GREEN, CubeColor.WHITE, CubeColor.BLUE},
+				{CubeColor.ORANGE, CubeColor.YELLOW, CubeColor.GREEN}};
 		wrapper.setFace(new CubeSurface(whitesurface), context);
 		
 		RubiksCube cube = new RubiksCube(wrapper);

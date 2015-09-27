@@ -2,7 +2,7 @@ package me.kyle.RubiksCube.api;
 
 public class CubeSurface {
 	
-	CubeColor[][] surface = new CubeColor[3][3];
+	CubeletFacet[][] surface = new CubeletFacet[3][3];
 	
 	
 	/**
@@ -19,34 +19,55 @@ public class CubeSurface {
 					throw new NullPointerException("Cannot have a null entry");
 			}
 		}
-		surface = colors;
+		int x = 0, y = 0;
+		for(CubeColor[] a: colors){
+			for(CubeColor b: a){
+				surface[y][x] = new CubeletFacet(b, colors[1][1]);
+				x++;
+			}
+			x = 0;
+			y++;
+		}
+		//surface = colors;
+	}
+	
+	public CubeSurface(CubeSurface other){
+		int x = 0, y = 0;
+		for(CubeletFacet[] a: other.surface){
+			for(CubeletFacet b: a){
+				surface[y][x] = new CubeletFacet(b);
+				x++;
+			}
+			x = 0;
+			y++;
+		}
 	}
 	
 	CubeDedge getTopDedge(){
-		return new CubeDedge(surface[0], surface[1][1]);
+		CubeletFacet[] colors = new CubeletFacet[3];
+		int i = 2;
+		for(CubeletFacet x: surface[0])
+			colors[i--] = x;
+		return new CubeDedge(colors, surface[1][1].color);
 	}
 	
 	CubeDedge getBottomDedge(){
-		CubeColor[] colors = new CubeColor[3];
-		int i = 2;
-		for(CubeColor x: surface[2])
-			colors[i--] = x;
-		return new CubeDedge(colors, surface[1][1]);
+		return new CubeDedge(surface[2], surface[1][1].color);
 	}
 	
 	CubeDedge getRightDedge(){
-		CubeColor[] colors = new CubeColor[3];
-		int i = 0;
-		for(CubeColor[] x: surface)
-			colors[i++] = x[2];
-		return new CubeDedge(colors, surface[1][1]);
+		CubeletFacet[] colors = new CubeletFacet[3];
+		int i = 2;
+		for(CubeletFacet[] x: surface)
+			colors[i--] = x[2];
+		return new CubeDedge(colors, surface[1][1].color);
 	}
 	
 	CubeDedge getLeftDedge(){
-		CubeColor[] colors = new CubeColor[3];
-		int i = 2;
-		for(CubeColor[] x: surface)
-			colors[i--] = x[0];
-		return new CubeDedge(colors, surface[1][1]);
+		CubeletFacet[] colors = new CubeletFacet[3];
+		int i = 0;
+		for(CubeletFacet[] x: surface)
+			colors[i++] = x[0];
+		return new CubeDedge(colors, surface[1][1].color);
 	}
 }

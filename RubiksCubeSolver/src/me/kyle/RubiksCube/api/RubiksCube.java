@@ -343,32 +343,32 @@ public class RubiksCube {
 		rotateSurface(face);
 	}
 	
-	public CubeletLocation findEdgeCubelet(CubeColor side1, CubeColor side2){//0,0 is on top left of front face
-		
-	}
+//	public CubeletLocation findEdgeCubelet(CubeColor side1, CubeColor side2){//0,0 is on top left of front face
+//		
+//	}
+//	
+//	private boolean edgeCubeletValid(EdgeCubelet cubelet, CubeColor color1, CubeColor color2){
+//		return (cubelet.getFrontSide().getColor().equals(color1) && cubelet.getOffSide().getColor().equals(color2)) ||
+//				(cubelet.getFrontSide().getColor().equals(color2) && cubelet.getOffSide().getColor().equals(color1));
+//	}
+//	
+//	public CubeletLocation findCornerCubelet(CubeColor side1, CubeColor side2, CubeColor side3){//0,0 is on top left of front face
+//		
+//	}
 	
-	private boolean edgeCubeletValid(EdgeCubelet cubelet, CubeColor color1, CubeColor color2){
-		return (cubelet.getFrontSide().getColor().equals(color1) && cubelet.getOffSide().getColor().equals(color2)) ||
-				(cubelet.getFrontSide().getColor().equals(color2) && cubelet.getOffSide().getColor().equals(color1));
-	}
-	
-	public CubeletLocation findCornerCubelet(CubeColor side1, CubeColor side2, CubeColor side3){//0,0 is on top left of front face
-		
-	}
-	
-	private boolean cornerCubeletValid(CornerCubelet cubelet, CubeColor side1, CubeColor side2, CubeColor side3){
-		CubeColor[] colors = {side1, side2, side3};
-		int istrue = 0;
-		for (CubeColor orignal: new CubeColor[]{cubelet.getFrontSide().getColor(), cubelet.getOffSide().getColor(), cubelet.getVerticalSide().getColor()}) {
-			for (CubeColor i : colors) {
-				if (cubelet.getFrontSide().getColor().equals(i)) {
-					istrue++;
-					break;
-				}
-			}
-		}
-		return istrue == 3;
-	}
+//	private boolean cornerCubeletValid(CornerCubelet cubelet, CubeColor side1, CubeColor side2, CubeColor side3){
+//		CubeColor[] colors = {side1, side2, side3};
+//		int istrue = 0;
+//		for (CubeColor orignal: new CubeColor[]{cubelet.getFrontSide().getColor(), cubelet.getOffSide().getColor(), cubelet.getVerticalSide().getColor()}) {
+//			for (CubeColor i : colors) {
+//				if (cubelet.getFrontSide().getColor().equals(i)) {
+//					istrue++;
+//					break;
+//				}
+//			}
+//		}
+//		return istrue == 3;
+//	}
 	
 	public void enableMoveLogging(){
 		logMoves = true;
